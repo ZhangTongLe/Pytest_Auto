@@ -1,0 +1,7 @@
+platformName: Android
+automationName:
+
+appPackage: com.xxzb.fenwoo
+appActivity: com.xxzb.fenwoo.activity.addition.WelcomeActivity
+newCommonTimeout: 500
+noReset: False
