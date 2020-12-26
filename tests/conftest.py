@@ -7,7 +7,7 @@ from src.file import File
 
 app_driver = None
 
-path =File.get_root_path("Auto_Test")
+path =File.get_root_path("Pytest_Auto")
 caps_path = path+'\\config\\caps.yml'
 
 @pytest.fixture(scope='session', autouse=True)

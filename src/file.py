@@ -119,8 +119,9 @@ class File:
     @staticmethod
     def get_root_path(project_name):
         curPath = os.path.abspath(os.path.dirname(__file__))
+
         # windows写法
-        rootPath = curPath[:curPath.find("project_name\\") + len("project_name\\")]  # 获取myProject，也就是项目的根路径
+        rootPath = curPath[:curPath.find(project_name) + len(project_name)]  # 获取myProject，也就是项目的根路径
         # Mac
         # rootPath = curPath[:curPath.find("myProject/") + len("myProject/")]  # 获取myProject，也就是项目的根路径
         return rootPath

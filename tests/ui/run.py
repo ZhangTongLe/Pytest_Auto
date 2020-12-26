@@ -10,7 +10,8 @@ class run:
 
 
 if __name__ == '__main__':
-    path =File.get_root_path("Auto_Test")
+    path =File.get_root_path("Pytest_Auto")
 
     pytest.main([path+'\\tests\\ui']) #
+
 
