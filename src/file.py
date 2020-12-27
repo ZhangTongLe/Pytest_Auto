@@ -62,24 +62,26 @@ class File:
         return match,mismatch,errors
 
    # 4、打印出两个字符串列表的差异
-
     def diff_str(self,s1,s2):
         sys.stdout.writelines(difflib.context_diff(s1, s2, fromfile='before.py', tofile='after.py'))
 
 
     # 5、返回列表中模糊匹配的字符串
-    def like_list(self,like,dir_list):
+    @staticmethod
+    def like_list(like,dir_list):
         difflib.get_close_matches(like, dir_list)
 
 
     # 6、创建多级目录文件夹
-    def file_make(self,path):
+    @staticmethod
+    def file_make(path):
         os.makedirs(path)
 
     '''
     7、修改部分文件名称
     '''
-    def rename_some(self, path, name='_result'):
+    @staticmethod
+    def rename_some(path, name='_result'):
         # 在原有名字上做补充
         # 不带后缀名的绝对路径+补充名字+后缀名
         new_name = os.path.splitext(path)[0] + name + os.path.splitext(path)[1]
@@ -88,7 +90,8 @@ class File:
     '''
     8、根据原有类型文件的后缀名，在当前目录拼接新名字同类型的文件
     '''
-    def rename_full(self, path, name='result'):
+    @staticmethod
+    def rename_full(self, path, name='report'):
         # 文件的目录地址+完整文件名字+原有的文件后缀名
         new_name = os.path.dirname(path) + name + os.path.splitext(path)[1]
         return new_name
@@ -97,9 +100,9 @@ class File:
     '''
     9、重命名文件
     '''
-    def rename(self,old_file_path,new_file_path):
+    @staticmethod
+    def rename(old_file_path,new_file_path):
         os.renames(old_file_path,new_file_path)
-
 
 
     '''
@@ -126,7 +129,13 @@ class File:
         # rootPath = curPath[:curPath.find("myProject/") + len("myProject/")]  # 获取myProject，也就是项目的根路径
         return rootPath
 
+    @staticmethod
+    def get_file_name(path):
+        basename=os.path.basename(path)
+        type = os.path.splitext(path)[1]
+        file_name = basename.rstrip(type)
 
+        return file_name
 
 
 '''

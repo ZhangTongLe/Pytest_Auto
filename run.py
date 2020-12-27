@@ -15,7 +15,12 @@ class run:
 
 
 if __name__ == '__main__':
-    path =File.get_root_path("Auto_Test")
+    path =File.get_root_path("Pytest_Auto")
     '''按指定目录运行case,用例执行是按目录顺序执行'''
-    pytest.main([path+'\\tests\\ui']) #运行指定目录的case
+    pytest.main([path+'\\tests\\ui','--alluredir=./report/']) #
 
+    # generate 生成静态报告，serve 打开服务器
+    os.popen('allure generate ./report/ -o ./report/allure-report/ --clean')
+
+
+    
