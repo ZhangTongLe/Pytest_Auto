@@ -20,7 +20,10 @@ if __name__ == '__main__':
     pytest.main([path+'\\tests\\ui','--alluredir=./report/']) #
 
     # generate 生成静态报告，serve 打开服务器
+    '''
+    pip install allure-pytest 
+    
+    '''
     os.popen('allure generate ./report/ -o ./report/allure-report/ --clean')
 
 
-    
